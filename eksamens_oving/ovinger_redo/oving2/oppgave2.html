@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 2</title>
+  </head>
+  <body>
+    <h2>Oppgave 2</h2>
+
+    Fornavn:<input type="text" id="fornavn" />
+    <br />
+    Mellomnavn:<input type="text" id="mellomnavn" />
+    <br />
+    Etternavn:<input type="text" id="etternavn" />
+    <button id="submit">Submit</button>
+    <br />
+    <div id="resultat"></div>
+  </body>
+
+  <script>
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    submit.onclick = () => {
+      // Fyller inn resultatet ved hjelp innerText og template literals (søk det opp, mye bedre!)
+      resultat.innerText += `${fornavn.value} ${mellomnavn.value} ${etternavn.value} `;
+    };
+  </script>
+</html>

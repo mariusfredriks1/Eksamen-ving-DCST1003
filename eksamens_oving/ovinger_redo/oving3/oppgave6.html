@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 3</title>
+  </head>
+  <body>
+    <h2>Oppgave 6</h2>
+    Din alder: <input type="number" id="alder" /> Ønsket antall km:
+    <input type="number" id="km" />
+    <button id="submit">Sjekk</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    submit.onclick = () => {
+      // Devinerer en konstant for kilometerprisen. Grunnen til
+      //at vi bruker const her er fordi verdien ikke vil variere
+      const perKm = 3.52;
+      // Definerer variabler for brukerinput, og henter ut verdiene(.value)
+      let alder = document.getElementById('alder').value;
+      let km = document.getElementById('km').value;
+      // If-setning som sjekker om alder er mindre enn 12
+      if (alder < 12) {
+        // Resultat som skrives ut hvis alder er mindre enn 12
+        // Merk at matten til rabatter gjøres intergrert i svaret
+        resultat.innerText = `Turen vil koste deg: ${perKm * km * 0.5}kr`;
+      }
+      // Sjekker om alder er større eller lik 67
+      else if (alder >= 67) {
+        // Resultat som skrives ut hvis alder er større eller lik 67
+        // Merk at matten til rabatter gjøres intergrert i svaret
+        resultat.innerText = `Turen vil koste deg: ${perKm * km * 0.8}kr`;
+      }
+      // Resultat som skrives ut hvis alder er mellom 12 og 67
+      else {
+        resultat.innerText = `Turen vil koste deg: ${perKm * km}kr`;
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 3</title>
+  </head>
+  <body>
+    <h2>Oppgave 4</h2>
+    <div>
+      Skriv inn: <br />
+      "H" for HJEMME <br />
+      "B" for BORTE <br />
+      "U" for UAVGJORT
+    </div>
+    <input type="text" id="userInp" />
+    <button id="submit">Submit</button>
+    <br />
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    submit.onclick = () => {
+      // Definerer en variabel for bruker input, og henter verdien(.value)
+      let tippet = document.getElementById('userInp').value;
+
+      // Sjekker om ulike "cases" er sanne. Alternativ til if-setninger(brukes lite)
+      switch (tippet) {
+        // Sjekker om bruker input var H
+        case 'H':
+          // Hvis det stemmer skrives "HJEMME" ut
+          resultat.innerText = `HJEMME`;
+          // Break går videre til neste case, dersom caset over ikke stemmer
+          break;
+
+        // Sjekker om bruker input var B
+        case 'B':
+          resultat.innerText = `BORTE`;
+          break;
+
+        // Sjekker om bruker input var U
+        case 'U':
+          resultat.innerText = `UAVGJORT`;
+          break;
+        // Default fungerer som else i if-setninger. Hvis ingen av casene
+        //stemmer, skrives beskjeden under ut
+        default:
+          resultat.innerText = `Du skrev inn noe feil`;
+      }
+    };
+  </script>
+</html>

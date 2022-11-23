@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funkjsonelle algoritmer vol. 3</title>
+  </head>
+  <body></body>
+  <script>
+    let musikk = [
+      {
+        artist: 'Eminem',
+        album: 'The Eminem Show',
+        tittel: 'Without Me',
+        utgitt: 2002,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Drake',
+        album: 'Scorpion',
+        tittel: 'Gods plan',
+        utgitt: 2018,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Eminem',
+        album: 'The Slim Shady LP',
+        tittel: 'Rock Bottom',
+        utgitt: 1999,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Dr. Dre',
+        album: '2001',
+        tittel: 'Forgot about Dre',
+        utgitt: 2001,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Ice cube',
+        album: 'The Predator',
+        tittel: 'It Was a Good Day',
+        utgitt: 1992,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Jay-Z',
+        album: 'Watch the Throne',
+        tittel: 'No Church in the Wild',
+        utgitt: 2011,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Adele',
+        album: null,
+        tittel: 'Hello',
+        utgitt: 2015,
+        kjønn: 'f',
+      },
+      {
+        artist: 'Ed Sheeran',
+        album: 'No.6',
+        tittel: 'Remember the Name',
+        utgitt: 2019,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Rihanna',
+        album: '21',
+        tittel: 'Set Fire to the Rain',
+        utgitt: 2011,
+        kjønn: 'f',
+      },
+      {
+        artist: 'Ed Sheeran',
+        album: 'Divide',
+        tittel: 'Shape of You',
+        utgitt: 2017,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Drake',
+        album: null,
+        tittel: 'Toosie Slide',
+        utgitt: 2020,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Dr. Dre',
+        album: '2001',
+        tittel: 'Whats The Difference',
+        utgitt: 2001,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Eminem',
+        album: 'The Slim Shady LP',
+        tittel: 'Brain Damage',
+        utgitt: 1999,
+        kjønn: 'm',
+      },
+      {
+        artist: 'Rihanna',
+        album: 'Good Girl Gone Bad',
+        tittel: 'Umbrella',
+        utgitt: 2007,
+        kjønn: 'f',
+      },
+      {
+        artist: 'Kanye West',
+        album: 'Graduation',
+        tittel: ' Good Morning',
+        utgitt: 2007,
+        kjønn: 'm',
+      },
+    ];
+
+    // Hvor mange albumnavn starter med "G"
+    console.log(
+      'Antall album på "G":',
+      musikk
+        .filter((e) => e.album != null && e.album[0] == 'G')
+        .map((e) => e.album).length
+    );
+
+    // Hvor mange artistnavn slutter med "e"?
+    console.log(
+      'Artistnavn som slutter på "e":',
+      musikk
+        .filter((e) => e.artist[length - 1] == 'e')
+        .reduce((sum, e) => sum + e, 0)
+    );
+
+    // Gjenomsnittlig utgivelsesår
+    console.log(
+      'Gjenomsnittlig utgivelsesår:',
+      musikk.reduce((sum, e) => sum + e.utgitt, 0) / musikk.length
+    );
+
+    // Finn alle singler
+    console.log(
+      'Sanger utgitt som singler:',
+      musikk.filter((e) => e.album == null).map((e) => e.tittel)
+    );
+
+    // Finn kvinnlige artister
+    console.log(
+      'Kvinnlige artister:',
+      musikk.filter((e) => e.kjønn == 'f').map((e) => e.artist)
+    );
+
+    // Sum utgitt år hos kvinner
+    console.log(
+      'Sum utgivelsesår for kvinner:',
+      musikk.filter((e) => e.kjønn == 'f').reduce((sum, e) => sum + e.utgitt, 0)
+    );
+
+    // Finn artisten som ga ut "Remember the Name"?
+    console.log(
+      'Hvem ga ut "Remember the Name":',
+      musikk.find((e) => e.tittel == 'Remember the Name').artist
+    );
+
+    // Hvilket album har sangen "Shape of You"?
+    console.log(
+      'I hvilket albumum finner vi "Shape of You":',
+      musikk.find((e) => e.tittel == 'Shape of You').album
+    );
+
+    // Ga noen ut låt i 2017?
+    console.log(
+      'Noen som ga ut låt i 2017:',
+      musikk.some((e) => e.utgitt == 2017) ? 'ja' : 'nei'
+    );
+
+    // Er alle menn?
+    console.log(
+      'Er alle menn:',
+      musikk.every((e) => e.kjønn == 'm') ? 'ja' : 'nei'
+    );
+
+    // Legg til 1000 år
+    console.log(
+      'Lagt til 1000 år:',
+      musikk.map((e) => e.utgitt + 1000)
+    );
+
+    // Finn utgivelsesårene som er oddetall
+    console.log(
+      'Utgivelsesårene som er oddetall',
+      musikk.filter((e) => e.utgitt % 2 != 0).map((e) => e.utgitt)
+    );
+
+    //Finn alle sangene som er mer enn 20 år gamle i år
+    let currentYear = new Date();
+    console.log(
+      musikk
+        .filter((e) => currentYear.getFullYear() - e.utgitt >= 20)
+        .map(
+          (e) =>
+            `'${e.tittel}' er ${currentYear.getFullYear() - e.utgitt} år gammel`
+        )
+    );
+
+    // Finn det eldste albumet
+    console.log(
+      'Eldste album er:',
+      musikk
+        .sort((a, b) => a.utgitt - b.utgitt)
+        .map((e) => e.album + ' ' + e.utgitt)[0]
+    );
+
+    // Finn alle albumene til eminem
+    console.log(
+      'Eminem sine album: ',
+      musikk.filter((e) => e.artist == 'Eminem').map((e) => e.album)
+    );
+
+    // Finn alle sangene til Ed Sheeran
+    console.log(
+      'Sangene til Ed Sheeran',
+      musikk.filter((e) => e.artist == 'Ed Sheeran').map((e) => e.tittel)
+    );
+    // Finn alle sangene til Ed Sheeran og Eminem
+    console.log(
+      'Sangene til Ed Sheeran og Eminem',
+      musikk
+        .filter((e) => e.artist == 'Ed Sheeran' || e.artist == 'Eminem')
+        .map((e) => `${e.tittel} : ${e.artist}`)
+    );
+
+    // Log alle unique artists|| IKKE PENSUM!
+    console.log('Unike artister', [...new Set(musikk.map((e) => e.artist))]);
+  </script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 5</title>
+  </head>
+  <body>
+    <h2>Oppgave 5</h2>
+    <input type="text" id="userInput" />
+    <button id="leggTil">Legg til</button>
+    <button id="skrivUt">Skriv ut</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Definerer en tom array, som senere blir fylt med innhold
+    let array = [];
+    // Funksjonen kjøres når brukeren trykker på "Legg til"
+    leggTil.onclick = () => {
+      // Definerer variablen "userInput", og setter den lik verdien i inputfeltet
+      let userInput = document.getElementById('userInput').value;
+      // Dytter brukerinput inn i arrayen
+      array.push(userInput);
+    };
+    // Funksjonen kjøres når brukeren trykker på "Skriv ut"
+    skrivUt.onclick = () => {
+      // Meldingsboks som inneholder det siste elementet i arrayen.
+      // Lengden til arrayen -1 vil gi oss det siste elementet
+      alert(array[array.length - 1]);
+    };
+  </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 4</title>
+  </head>
+  <body></body>
+  <script>
+    let v = [2, 4, 6];
+
+    // A
+    console.log(v.map((e) => e / 2));
+
+    // B
+    console.log(v.map((e, i) => e + i));
+
+    // C
+    console.log(v.map((e) => e * 2).reduce((sum, e) => sum + e, 0));
+
+    let students = [
+      { name: 'Ola', age: 20 },
+      { name: 'Kari', age: 25 },
+      { name: 'Knut', age: 30 },
+    ];
+
+    // D
+    console.log(students.reduce((sum, e) => sum + e.age, 0) / students.length);
+
+    // E
+    console.log(students.filter((e) => e.name[0] == 'K'));
+
+    // F
+    console.log(students.some((e) => e.name == 'Ola') ? 'yes' : 'no');
+
+    // G
+    console.log(students.every((e) => e.age >= 22) ? 'yes' : 'no');
+  </script>
+</html>

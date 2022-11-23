@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 6</title>
+  </head>
+
+  <body>
+    <h2>Oppgave 5</h2>
+    <button id="skrivUt" onclick="skrivUt()" style="margin-bottom: 30px">
+      Skriv ut
+    </button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Definerer tom variabel som fylles med tabellen
+    let tekst = ' ';
+
+    // Funksjonen som fyller tabellen
+    let fyllTabell = () => {
+      // Definerer tom array for tabellen
+      let tabell = [];
+      // For løkke som
+      for (let i = 0; i <= 10; i++) {
+        tabell[i] = [];
+      }
+
+      // Nøstede for løkker som fyller inn rammen rundt
+      // selve tabellen med tall fra 1-10.
+      // Det er x-løkken som tar seg av x-aksen
+      for (let x = 0; x <= 10; x++) {
+        // Setter index 1 i tabellen lik x
+        tabell[0][x] = x;
+        // y-løkken tar seg av y-aksen
+        for (let y = 0; y <= 10; y++) {
+          // Setter index 0 i tabellen lik y
+          tabell[y][0] = y;
+        }
+      }
+
+      // Nøstet for-løkke som tar seg av innholdet i selve dele-tabellen
+      // Bruker samme prinsipper som gangetabellen i øving 4, oppgave 4.
+      // Ytre løkke
+      for (let i = 1; i <= 10; i++) {
+        // Indre løkke
+        for (let j = 1; j <= 10; j++) {
+          // Setter innholdet til tabellen lik i/j
+          // og runder av til to desimaler
+          tabell[i][j] = (i / j).toFixed(2);
+        }
+      }
+      // Returnerer ferdig utfylt tabell
+      return tabell;
+    };
+
+    // Funksjonen som skriver ut resultatet når knappen trykkes på
+    let skrivUt = () => {
+      // Oppdaterer verdien til variablen "tabell", og setter den
+      // lik innholdet funksjonen "fyllTabell" genererte
+      let tabell = fyllTabell();
+      // Begynner å fylle variablen "tekst", først her med et <table> element
+      let tekst = "<table border='1px'>";
+
+      // Nøstede for-løkker som avgrenser antall rader (<tr>) og antall ruter (<td>)
+      // Ytre for-løkke bestemmer antall rader
+      for (let i = 0; i <= 10; i++) {
+        // Legger til rader i variablen tekst, inne i <table>
+        tekst += "<tr style='height:40px'>";
+        // Indre for løkke avgrenser antall ruter (<td>) i hver rad (<tr>)
+        for (let j = 0; j <= 10; j++) {
+          // Legger til ruter i variablen tekst i hver rad(<tr>), som igjen ligger inne i <table>
+          tekst += "<td style='width:40px'><center>" + tabell[i][j] + '</td>';
+        }
+        // Avslutter en rad
+        tekst += '</tr>';
+      }
+      // Avslutter hele tabellen når alle løkkene er ferdig kjørt
+      tekst += '</table>';
+
+      // Skriver ut resultatet i HTML
+      resultat.innerHTML = tekst;
+    };
+  </script>
+</html>

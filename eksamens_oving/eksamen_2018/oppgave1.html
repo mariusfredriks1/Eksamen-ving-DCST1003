@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 1</title>
+  </head>
+  <body>
+    Skriv inn 10 tall: <input type="number" id="tall" />
+    <button id="leggTil">Legg til</button>
+  </body>
+  <script>
+    // Oppgave 1:
+    // Lag et program som leser inn ti tall fra brukeren og gjør følgende:
+    // - Hvis et innlest tall er mellom 10 og 45, skal det legges til en totalsum.
+    // - Hvis ikke, skal tallet trekkes fra en totalsum.
+    // - Når de ti tallene er lest inn, skal følgende skrives ut til websiden
+    // Tallene 10, 20, 20, 10, 9, 1, 2, 8, 50 og 4 gir totalsum -14.
+
+    let tallArray = [];
+    let plussTall = [];
+    let minusTall = [];
+
+    let div = document.createElement('div');
+    document.body.appendChild(div);
+
+    leggTil.onclick = () => {
+      // +-tegnet foran document.getElementById gjør verdien
+      // til et tall i stedet for å brukeNumber(tall)
+      let tall = +document.getElementById('tall').value;
+      tallArray.push(tall);
+
+      if (tall >= 10 && tall <= 45) plussTall.push(tall);
+      else minusTall.push(tall);
+
+      if (tallArray.length === 10) {
+        div.innerText = `Tallene ${tallArray.map((e) => e)} gir totalsum ${
+          plussTall.reduce((sum, e) => sum + e, 0) -
+          minusTall.reduce((sum, e) => sum + e, 0)
+        }`;
+      }
+    };
+  </script>
+</html>

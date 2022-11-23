@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 4</title>
+  </head>
+  <body></body>
+  <script>
+    let v = [2, 4, 6];
+    //
+    console.log(v.map((e) => e - 4));
+
+    console.log(v.map((e, i) => e + i));
+
+    console.log(v.filter((e) => e >= 4));
+
+    console.log(v.reduce((str, e) => str + e + '-', '-'));
+
+    console.log('/////////////');
+
+    let students = [
+      { id: 1, name: 'Kari' },
+      { id: 2, name: 'Ola' },
+      { id: 3, name: 'Knut' },
+    ];
+
+    console.log(
+      students
+        .filter((student) => student.name[0] == 'K')
+        .map((student) => student.id)
+    );
+
+    console.log(
+      students
+        .filter((student) => student.name[0] == 'K')
+        .reduce((sum, id) => sum + id, 0)
+    );
+
+    console.log(students.some((student) => students.id == 5) ? 'yes' : 'no');
+  </script>
+</html>

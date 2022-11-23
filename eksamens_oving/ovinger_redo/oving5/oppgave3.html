@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 5</title>
+  </head>
+  <body>
+    <h2>Oppgave 3</h2>
+    <input type="number" id="lengde" />
+    <button id="sjekk">Sjekk</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funksjon som kjører når du trykker på knappen
+    sjekk.onclick = () => {
+      // Definerer variablen lengde og setter den lik bruker input sin verdi (.value)
+      let lengde = document.getElementById('lengde').value;
+      // Skriver ut resultatet, og gjør utregningen intergrert i svaret
+      resultat.innerText = `Arealet av kvadratet med sidelengde ${lengde}cm, er ${
+        lengde * lengde
+      }cm^2`;
+    };
+  </script>
+</html>

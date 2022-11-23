@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 4</title>
+  </head>
+  <body>
+    <h2>Oppgave 2</h2>
+    <p id="resultat"></p>
+  </body>
+  <script>
+    // Definerer verdien til i, slik at det
+    // første tallet som skrives ut blir 12
+    let i = 12;
+
+    // While-løkke som sjekker om i er mindre eller lik 98
+    while (i <= 98) {
+      // Så lenge "i" er mindre eller lik 98 skrives dette ut
+      resultat.innerText += `Jeg er tall nr. ${i}\n`;
+      // i+= 5 øker i med 5 for hver gang, slik at tallet som
+      // skrives ut også øker med 5.
+      i += 5;
+    }
+  </script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 11</title>
+  </head>
+  <body></body>
+  <script>
+    let v = [1, 2, 3];
+
+    //add 2 to each element of v: [ 3, 4, 5 ]
+    console.log(v.map((e) => e + 2));
+
+    // multiply each element of v by 2: [ 2, 4, 6 ]
+    console.log(v.map((e) => e * 2));
+
+    //sum of v: 6
+    console.log(
+      'Sum of v:',
+      v.reduce((sum, e) => sum + e, 0)
+    );
+
+    //mean of v: 2
+    console.log('Mean of v:', v.reduce((sum, e) => sum + e) / v.length);
+
+    //each element of v as string: [ '1', '2', '3' ]
+    console.log(v.map((e) => e.toString()));
+
+    //v as string: v[0] = 1, v[1] = 2, v[2] = 3
+    console.log(v.map((e, i) => `v[${i}] = ${e}`));
+
+    let students = [
+      { name: 'Ola', grade: 'A' },
+      { name: 'Kari', grade: 'C' },
+      { name: 'Knut', grade: 'C' },
+    ];
+
+    console.log('///////OPPGAVE 2///////');
+
+    // students-elements as strings: [ 'Ola got A', 'Kari got C', 'Knut got C' ]
+    console.log(students.map((e) => `${e.name} got ${e.grade},`));
+
+    // Kari got: C
+    console.log('Kari got:', students.find((e) => e.name === 'Kari').grade);
+
+    // Did everyone get C: No
+    console.log(
+      'Did everyone get C:',
+      students.every((e) => e.grade == 'C') ? 'yes' : 'no'
+    );
+
+    // How many got C: 2
+    console.log(
+      'How many got C:',
+      students.reduce((sum, e) => sum + (e.grade == 'C'), 0)
+    );
+
+    // Percentage of C grades: 66.67
+    console.log(
+      'Percentage of C grades:',
+      (
+        (students.filter((e) => e.grade == 'C').length / students.length) *
+        100
+      ).toFixed(2) + '%'
+    );
+
+    // Did anyone get A: Yes
+    console.log(
+      'Did anyone get A:',
+      students.some((e) => e.grade == 'A') ? 'Yes' : 'No'
+    );
+
+    // Did anyone get F: No
+    console.log(
+      'Did anyone get F:',
+      students.some((e) => e.grade == 'F') ? 'Yes' : 'No'
+    );
+  </script>
+</html>

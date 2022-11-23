@@ -1,0 +1,96 @@
+<html>
+  <body>
+    <h1>Find the hidden button and click it!</h1>
+    <p><b>How many buttons can you click in 15 seconds?</b></p>
+    <div>Points:</div>
+    <div id="pointsText"></div>
+    <div>Timer:</div>
+    <div id="timerText"></div>
+    <button id="button">Click me</button>
+    <script>
+      let points = 0;
+      // Gir tidsgrense en verdi av "15"
+      let tidsgrense = 15;
+
+      let pointsText = document.getElementById('pointsText');
+      pointsText.innerText = points;
+
+      // Setter innholdet til nedtellingen lik "15 sekunder"
+      let timerText = document.getElementById('timerText');
+      timerText.innerText = `${tidsgrense} sekunder`;
+
+      let button = document.getElementById('button');
+      button.style.position = 'absolute';
+      //  Hide button
+      button.style.visibility = 'hidden';
+      //  Move button to a random position
+      button.style.left = Math.floor(Math.random() * 500) + 'px';
+      button.style.top = Math.floor(Math.random() * 500) + 'px';
+
+      //  Show button when the mouse cursor is close to it
+      window.onmousemove = (event) => {
+        //  Find the center of button
+        let rect = button.getBoundingClientRect();
+        let centerX = (rect.right + rect.left) / 2;
+        let centerY = (rect.bottom + rect.top) / 2;
+
+        //  Calculate distance between mouse cursor and center of button
+        let distance = Math.sqrt(
+          Math.pow(centerX - event.clientX, 2) +
+            Math.pow(centerY - event.clientY, 2)
+        );
+
+        if (distance < 100 && button.style.visibility == 'hidden') {
+          button.style.visibility = 'visible';
+        }
+      };
+
+      // Definerer en boolean slik at nedtellingen kun starter
+      // ved første knappetrykk
+      let started = false;
+      // Funksjonen som gjør selve nedtellingen
+      let startTimer = () => {
+        // Sjekker om started er "false"
+        if (!started) {
+          // Hvis !started starter nedtellingen
+          let nedtelling = setInterval(() => {
+            // Minsker nedtellingen med 1
+            tidsgrense--;
+            // Fyller inn antall sekunder som gjenstår, inn i html
+            document.getElementById(
+              'timerText'
+            ).textContent = `${tidsgrense} sekunder`;
+            // Når tidsgrense === 0, er tiden ute, og spillet over
+            if (tidsgrense === 0) {
+              // Meldingsboks som inneholder brukerens resultat
+              alert(`Bra jobba, du fikk ${points} poeng!`);
+              // Laster inn vinduet på nytt, dermed nullstilles verdier
+              location.reload();
+            }
+            // 1000 tilhører SetInterval, og definerer hvor mange millisekunder
+            // det skal gå mellom hver "tidsgrense--". Den er satt til 1000, fordi
+            // det er 1000 millisekunder i et sekund
+          }, 1000);
+          // Endrer booleanen vår til true, slik at ikke funksjonen starter på nytt
+          // for hver button.onclick
+          started = true;
+        }
+      };
+
+      // Funksjon som kjøres hver gang bruker trykker på knappen
+      button.onclick = () => {
+        // Starter funksjonen startTimer, og dermed nedtellingen
+        startTimer();
+        // Gjemmer knappen igjen, kopiert fra linje 24
+        button.style.visibility = 'hidden';
+        // Flytter knappen til et tilfeldig sted, kopiert fra linje 26/27
+        button.style.left = Math.floor(Math.random() * 500) + 'px';
+        button.style.top = Math.floor(Math.random() * 500) + 'px';
+        // Øker poeng med 1
+        points++;
+        // Skriver ut antall poeng
+        pointsText.innerText = points;
+      };
+    </script>
+  </body>
+</html>

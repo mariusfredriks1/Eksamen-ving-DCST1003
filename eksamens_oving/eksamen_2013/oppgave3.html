@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 3</title>
+  </head>
+  <body>
+    <input type="text" id="userInp" />
+    <button id="submit">Legg til</button>
+  </body>
+  <script>
+    let tall = 0;
+
+    let leggTilMVA = (/* Tall = x-verdi her på oppg. A */) => {
+      let medMva = tall * 1.25;
+      alert(medMva);
+    };
+    leggTilMVA();
+
+    submit.onclick = () => {
+      let userInp = document.getElementById('userInp').value;
+      if (isNaN(userInp)) {
+        alert('Skriv inn et tall');
+        location.reload();
+      } else {
+        tall = userInp;
+        leggTilMVA();
+      }
+    };
+  </script>
+</html>
