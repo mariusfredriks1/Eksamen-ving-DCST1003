@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 3</title>
+  </head>
+  <body>
+    <h2>Oppgave 2</h2>
+    alder: <input type="number" id="alder" />
+    <button id="submit">Sjekk</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    submit.onclick = () => {
+      // Definerer en variabel for bruker input, og henter verdien(.value)
+      let alder = document.getElementById('alder').value;
+      // If-setning som sjekker om alderen er mindre enn 18
+      if (alder < 18) {
+        // Hvis alderen er under 18 skrives dette ut
+        resultat.innerText = `Du er ikke myndig enda`;
+      }
+      //else if-setning som sjekker om alderen er mellom 18 og 66.999
+      else if (alder >= 18 && alder < 67) {
+        // Hvis alder er mellom 18 og 66.99 skrives dette ut
+        resultat.innerText = `Du er myndig`;
+      }
+      // Hvis ingen av setningene over stemmer
+      else {
+        // Skrives følgende resultat ut
+        resultat.innerText = `Du er myndig. Du er dessuten pensjonist`;
+      }
+    };
+  </script>
+</html>

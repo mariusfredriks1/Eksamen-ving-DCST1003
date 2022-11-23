@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 1</title>
+  </head>
+  <body></body>
+  <script>
+    isPalidrom = (str) => {
+      if (str.length == 0) return true;
+
+      let reversed_str = '';
+
+      for (let i = str.length - 1; i >= 0; i--) {
+        reversed_str += str[i];
+      }
+      return reversed_str == str;
+    };
+    console.log(
+      'er agnes i senga et palidrom?',
+      isPalidrom('agnes i senga') ? 'ja' : 'nei'
+    );
+    console.log('er halla et palidrom?', isPalidrom('halla') ? 'ja' : 'nei');
+
+    let isLeapYear = (year) => {
+      if (year % 100 == 0) {
+        if (year % 400 == 0) return true;
+        return false;
+      }
+      if (year % 4 == 0) return true;
+      return false;
+    };
+    console.log('Er 2022 et skuddår:', isLeapYear(2022) ? 'ja' : 'nei');
+    console.log('Er 2024 et skuddår:', isLeapYear(2024) ? 'ja' : 'nei');
+    console.log('Er 2100 et skuddår:', isLeapYear(2100) ? 'ja' : 'nei');
+  </script>
+</html>

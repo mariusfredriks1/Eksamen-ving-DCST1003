@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 4</title>
+  </head>
+  <body></body>
+  <script>
+    let v = [2, 4, 6];
+
+    console.log(
+      'OPPGAVE A:',
+      v.map((element) => element * 3)
+    );
+    console.log(
+      'OPPGAVE B:',
+      v.map((element, index) => index + 2)
+    );
+    console.log(
+      'OPPGAVE C:',
+      v.filter((element) => element > 3)
+    );
+
+    console.log(
+      'OPPGAVE D:',
+      v.reduce((sum, element, index) => sum + index, 0)
+    );
+
+    let grades = [
+      { student: 'Ola', grade: 'C' },
+      { student: 'Kari', grade: 'B' },
+      { student: 'Knut', grade: 'B' },
+    ];
+
+    //Did any student get D: no
+    console.log(
+      'Did any student get D?:',
+      grades.some((element) => element.grade == 'D') ? 'yes' : 'No'
+    );
+
+    // Students that got B: ['Kari', 'Knut']
+    console.log(
+      'OPPGAVE F:',
+      grades
+        .filter((element) => element.grade === 'B')
+        .map((element) => element.student)
+    );
+
+    // Ola's grade: C
+    console.log(
+      'Ola grade:',
+      grades.find((element) => (grades.element = 'Ola')).grade
+    );
+  </script>
+</html>

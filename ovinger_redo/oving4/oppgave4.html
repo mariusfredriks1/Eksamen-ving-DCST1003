@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 4</title>
+  </head>
+  <body onload="table()">
+    <h2>Oppgave 4</h2>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // ES6 arrow-funksjon syntax
+    let table = () => {
+      // Definerer variablen for sum, og en tom variabel for tabellen
+      let sum;
+      let tabell = '';
+      // Ytre for-løkke,
+      for (let y = 10; y <= 20; y++) {
+        // Indre for-løkke
+        for (let x = 10; x <= 20; x++) {
+          // Regner ut summen av x multiplisert med y
+          sum = y * x;
+          // Pusher verdien til sum inn i variablen tabell
+          tabell += ` ${sum} |`;
+        }
+        //  \n fungerer som <br>, og skaper et linjeskift
+        tabell += '\n';
+      }
+      // Skriver ut resultatet ved bruk av innerText
+      resultat.innerText = tabell;
+    };
+  </script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 2</title>
+  </head>
+  <style>
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <button id="sjekk">Trykk</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Oppgave 2:
+    // I denne oppgaven skal du lage en liten spilleautomat som ligner på enarmet banditt.
+    // Programmet består av et enkelt vindu med en knapp. Hver gang du klikker på knappen skal
+    // det vises et sett med tre nye frukter på websiden. Hvilke bilder som dukker opp på de tre
+    // forhåndsdefinerte posisjonene er helt tilfeldig.
+    // Følgende 6 frukter kan dukke opp på vår forenklede spillemaskin: kirsebær, druer, appelsin,
+    // sitron, vannmelon, plomme
+    // Legg til slutt til kode som sjekker om alle fruktene er like. Da skal det vises en melding om at
+    // du har vunnet
+
+    /*   let frukter = [
+      'https://img.freepik.com/free-vector/realistic-berries-composition-with-isolated-image-cherry-with-ripe-leaves-blank-background-vector-illustration_1284-66040.jpg',
+      'https://media.istockphoto.com/id/1146278313/vector/grapes-icon-vector-fruit-illustration-nature-wine.jpg?s=612x612&w=0&k=20&c=lSYccps2gLUtM0lm_L3tjGGicAbRYomOBh9mfzeGeQ0=',
+      'https://cdn.tutsplus.com/cdn-cgi/image/width=600/vector/uploads/legacy/tuts/53_Vector_Orange/final.jpg',
+      'https://i.pinimg.com/originals/ae/a3/11/aea311b0b67d4ffc1cf160ad98f007e6.jpg',
+      'https://media.istockphoto.com/id/474993250/vector/watermelon.jpg?s=612x612&w=0&k=20&c=WsuhjaaV_OyMr2C9I8sN608i90m5cLtqgC8qy5z_3hk=',
+      'https://thumbs.dreamstime.com/b/plum-icon-flat-style-illustration-isolated-white-background-123148064.jpg',
+    ]; */
+
+    // Array med tenkte bildefiler
+    let frukter = [
+      'kirsebær.jpg',
+      'druer.jpg',
+      'appelsin.jpg',
+      'sitron.jpg',
+      'vannmelon.jpg',
+      'plomme.jpg',
+    ];
+    sjekk.onclick = () => {
+      // Tømmer resultat for gammelt innhold
+      resultat.innerHTML = '';
+
+      //For løkke som kjører 3 ganger, en gang for hvert bilde
+      for (i = 1; i <= 3; i++) {
+        // Variabel for tilfeldig rundt tall mellom 1 og 6
+        let tilfeldigfrukt = Math.floor(Math.random() * 6);
+
+        // Lager en img-tag
+        let img = document.createElement('img');
+
+        // Gir img tag'en en id = img +  index
+        img.id = `img${i}`;
+
+        // Henter bilde kilden fra frukter, der index er [tilfeldigFrukt]
+        img.src = frukter[tilfeldigfrukt];
+
+        //Legger til img i resultat
+        resultat.appendChild(img);
+
+        // Husk at grunnen til at vi får ut 3 tilfeldig bilder, er fordi
+        // opprettingen av bildene, samt deklareringen av det tilfeldige
+        // tallet, skjer inne i en for løkke som kjører 3 ganger
+      }
+
+      // For-løkke som sjekker om alle bildene er identiske
+      if (img1.src == img2.src && img2.src == img3.src) {
+        alert('Du vant');
+      }
+    };
+  </script>
+</html>

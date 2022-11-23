@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 3</title>
+  </head>
+  <body>
+    <h2>Oppgave 1</h2>
+
+    Skriv inn et tall: <input type="number" id="tall" />
+    <br />
+    <button id="submit">Sjekk</button>
+    <br />
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Definer er variabel for talle brukeren skriver inn
+    let x = document.getElementById('tall');
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    submit.onclick = () => {
+      // Skriver ut resultatet. \n kan brukes for linjeskift med template literals
+      resultat.innerText = `Halvparten av ${x.value} er ${
+        x.value / 2
+      }\n Det dobbelte av ${x.value} er ${x.value * 2}\n Det tredobbelte av ${
+        x.value
+      } er ${x.value * 3}\n ${x.value} ganget med seg selv er ${
+        x.value * x.value
+      }`;
+    };
+  </script>
+</html>

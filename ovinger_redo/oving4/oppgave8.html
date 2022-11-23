@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 4</title>
+  </head>
+  <body onload="tallTrekant()">
+    <h2>Oppgave 8 (Frivillig)</h2>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    /* Samme som oppgave 7, bare at vi har snudd talltrekanten
+       på hodet. i stedet for x=1, har vi nå x = 10. Derfor minsker
+       vi også x med 1, i stedet for å øke med 1. x må også være 
+       større eller lik 1 for at det skal fungere nå
+    */
+    // Tom global variabel som fylles lenger ned i koden
+    let tall = '';
+    // Funksjon som kjøres ved body onload
+    let tallTrekant = () => {
+      // Ytre for-løkke
+      for (let x = 10; x >= 1; x--) {
+        // Indre for-løkke
+        for (let y = 1; y <= x; y++) {
+          // Fyller den tomme variablen "tall" med verdier
+          tall += ` ${y}`;
+        }
+        // Legger inn linjeskift
+        tall += '\n';
+      }
+      // Skriver ut resultatet
+      resultat.innerText = tall;
+    };
+  </script>
+</html>

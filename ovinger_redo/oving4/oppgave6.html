@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 4</title>
+  </head>
+  <style>
+    input {
+      margin: 5px;
+    }
+  </style>
+  <body>
+    <h2>Oppgave 6</h2>
+    <input type="text" placeholder="Brukernavn" id="brukernavn" required />
+    <br />
+    <input type="password" placeholder="Passord" id="passord" required />
+    <br />
+    <button id="knapp">Logg inn</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Definerer global variabel for antal forsøk
+    let forsok = 3;
+    // Funksjon som kjører i det du trykker på knappen
+    knapp.onclick = () => {
+      // Lokale variabler for brukernavn og passord. (.value) sånn at den henter ut brukerinput
+      let brukernavn = document.getElementById('brukernavn').value;
+      let passord = document.getElementById('passord').value;
+
+      // Litt stor og stygg if-setning som sjekker om brukernavn og passord stemmer
+      if (
+        (brukernavn == 'per' && passord == '1234') ||
+        (brukernavn == 'kari' && passord == '4321') ||
+        (brukernavn == 'atle' && passord == '2000')
+      ) {
+        // Hvis passord stemmer skrives dette ut, og antall forsøk nullstilles
+        resultat.innerText = `Velykket innlogging, velkommen ${brukernavn}`;
+        forsok = 3;
+      }
+
+      // Hvis brukernavn eller passord ikke stemmer
+      else {
+        // If-setning som sjekker om du har brukt 3 forsøk
+        if (forsok === 1) {
+          // Hvis du har brukt 3 forsøk kommer en alert boks opp
+          alert('Tom for innloggingsforsøk');
+          // Laster inn siden på nytt i det du trykker bort alert boksen
+          location.reload();
+        } else {
+          // Hvis bruker ikke har brukt tre forsøk gis det beskjed om at input var
+          // feil, og det skrives ut hvor mange forsøk som gjenstår
+          resultat.innerHTML = `Feil brukernavn eller bassord\n Du har ${
+            forsok - 1
+          } forsøk igjen`;
+          // Reduserer antall forsøk
+          forsok--;
+        }
+      }
+    };
+  </script>
+</html>

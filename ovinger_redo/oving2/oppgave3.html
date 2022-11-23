@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Oppgave 3(Frivillig)</h2>
+
+    <input type="text" id="inputText" />
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Definerer en variabel for HTML-elementet input, med id='inputText'
+    let inputText = document.getElementById('inputText');
+    // Funksjon som kjøres i det brukeren skriver inn noe
+    inputText.oninput = () => {
+      // Skriver ut resultatet
+      resultat.innerText = inputText.value;
+    };
+  </script>
+</html>

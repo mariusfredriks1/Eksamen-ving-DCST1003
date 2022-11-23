@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 5</title>
+  </head>
+  <body>
+    <h2>Oppgave 2</h2>
+    <input type="number" id="tall1" />
+    <input type="number" id="tall2" />
+    <button id="sjekk">Sjekk</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funksjon som kjører når du trykker på knappen
+    sjekk.onclick = () => {
+      // Definerer variablene tall1 og tall2, og setter dem lik bruker input
+      let tall1 = document.getElementById('tall1').value;
+      let tall2 = document.getElementById('tall2').value;
+      // If-setning som sjekker om tall1 er større enn tall2
+      if (tall1 > tall2) {
+        // Resultatet som skrives ut hvis tall1 er størst
+        resultat.innerText = `${tall1} er større enn ${tall2}`;
+      }
+      // Else If-setning som sjekker om tall2 er større enn tall1
+      else if (tall1 < tall2) {
+        // Resultatet som skrives ut hvis tall2 er størst
+        resultat.innerText = `${tall1} er større enn ${tall2}`;
+      }
+      // Resultatet som skrives ut hvis tall1 == tall2"
+      else resultat.innerText = `${tall1} og ${tall2} er like store`;
+    };
+  </script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 2</title>
+  </head>
+  <body></body>
+  <script>
+    let table = document.createElement('table');
+    table.style.border = 'solid';
+    document.body.appendChild(table);
+
+    let date = new Date();
+
+    let dayOfMonth = 1;
+
+    for (let row_number = 0; row_number < 4; row_number++) {
+      let row = document.createElement('tr');
+      table.appendChild(row);
+      for (let col_Number = 0; col_Number < 6; col_Number++) {
+        let col = document.createElement('td');
+        row.appendChild(col);
+        col.style.border = 'solid';
+        if (dayOfMonth <= date.getDate()) {
+            col.innerText = dayOfMonth;
+        } else col.innerText = '...';
+        dayOfMonth++;
+      }
+    }
+  </script>
+</html>

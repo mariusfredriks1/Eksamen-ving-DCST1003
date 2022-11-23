@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <select id="listeValg">
+      <option>toyota</option>
+      <option>bmw</option>
+      <option>audi</option>
+      <option>porsche</option>
+    </select>
+    Din Alder:<input id="alder" type="number" /> Antall dager<input
+      id="dager"
+      type="number"
+    />
+    <button id="bestill">Bestill</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    let biler = {
+      toyota: 400,
+      bmw: 600,
+      audi: 500,
+      porsche: 750,
+    };
+
+    bestill.onclick = () => {
+      let valgtbil = document.getElementById('listeValg').value;
+      let alder = document.getElementById('alder').value;
+      let dager = document.getElementById('dager').value;
+
+      if (alder == 0 || dager == 0) alert('Fyll ut alle felter');
+      else {
+        if (valgtbil == 'porsche' || alder < 25) {
+          resultat.innerText = `Valgt bil: ${valgtbil}\n Antall dager: ${dager}\n	Totalpris: ${
+            biler[valgtbil] * dager
+          }kr`;
+        } else {
+          resultat.innerText = `Valgt bil: ${valgtbil}\n Antall dager: ${dager}\n Rabatt: ${
+            biler[valgtbil] * dager * 0.1
+          }kr\n Totalpris: ${biler[valgtbil] * dager * 0.9}kr`;
+        }
+      }
+    };
+  </script>
+</html>

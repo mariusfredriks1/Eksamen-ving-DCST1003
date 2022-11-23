@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 4</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+  <body onload="lyrics()">
+    <h2>Oppgave 5</h2>
+    <h3>10 Green Bottles</h3>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Tom global variabel som fylles med tekst lenger ned i koden
+    let sangTekst = '';
+    // Funksjon som kjøres ved body onload
+    let lyrics = () => {
+      // For-løkke som setter i = 10, og kjører i-1 for hver iterasjon
+      for (let i = 10; i > 0; i--) {
+        // If-setning som sjekker at vi ikke har kommet til siste avsnitt enda
+        if (i - 1 >= 1) {
+          // Pusher lyrics inn i den tomme variablen sangTekst, som vi definerte globalt
+          sangTekst += `\n ${i} green bottles, hanging on the wall,\n ${i} green bottles, hanging on the wall,\n If 1 green bottle were to accidentally fall\n There'd be ${
+            i - 1
+          } green bottles hanging on the wall`;
+        }
+        // Hvis det bare er igjen èn flaske, bytter vi ut "bottles" med "bottle"
+        else {
+          sangTekst += `\n ${i} green bottle, hanging on the wall,\n ${i} green bottle, hanging on the wall,\n If 1 green bottle were to accidentally fall\n There'd be ${
+            i - 1
+          } green bottles hanging on the wall`;
+        }
+      }
+      // Skriver ut resultatet
+      resultat.innerText = sangTekst;
+    };
+  </script>
+</html>

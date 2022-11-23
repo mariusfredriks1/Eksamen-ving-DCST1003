@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 4</title>
+  </head>
+  <body></body>
+  <script>
+    // Oppgave 4:
+    // Lag en applikasjon som ved oppstart inneholder en knapp. Denne knappen skal være
+    // posisjonert 10 punkter fra venstre kant av siden/vinduet, og 10 punkter fra toppen av
+    // siden/vinduet.
+    // Når en hvilken som helst knapp klikkes, skal en ny knapp opprettes:
+    // - Posisjonen skal være 10 punkter til høyre fra forrige knapp som ble opprettet
+    // - Posisjonen skal være 10 punkter nedenfor forrige knapp som ble opprettet
+
+    // Deklarerer globale variabler for margins
+    let margin_left = 10;
+    let margin_top = 10;
+
+    //Funkjsonen som genererer knapper
+    let knapp = () => {
+      // Lager knapp
+      let button = document.createElement('button');
+      button.innerText = 'Trykk her';
+      // Setter position til absolute
+      button.style.position = 'absolute';
+      // Legger til margin left
+      button.style.left = margin_left + 'px';
+      // Legger til margin top
+      button.style.top = margin_top + 'px';
+      // Legger til knappen i body
+      document.body.appendChild(button);
+
+      // Funksjon som øker de globale variablene for margin
+      // før den deretter utfører funkjsonen som genererer
+      // knapper. funksjonen vil nå flytte knappen 10px mer ned
+      // og 10px mer til høyre, enn forrige knapp
+      button.onclick = () => {
+        //Øker margin left med 10
+        margin_left += 10;
+        //Øker margin top med 10
+        margin_top += 10;
+        //Trigger funksjonen knapp
+        knapp();
+      };
+    };
+    //Kjører funkjsonen sånn at den opprinnelige knappen vises
+    knapp();
+  </script>
+</html>

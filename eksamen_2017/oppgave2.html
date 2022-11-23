@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 2</title>
+  </head>
+  <body>
+    Velg bil:
+    <select id="bilValg">
+      <option>Toyota</option>
+      <option>BMW</option>
+      <option>Audi</option>
+      <option>Porsche</option>
+    </select>
+    <br />
+    Antall dager:
+    <input type="number" id="antDager" required />
+    <br />
+    Din alder
+    <input type="text" id="alder" required />
+    <br />
+    <button id="submit">Sjekk pris</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    let biler = {
+      Toyota: 400,
+      BMW: 600,
+      Audi: 500,
+      Porsche: 750,
+    };
+
+    submit.onclick = () => {
+      let alder = parseInt(document.getElementById('alder').value);
+      let dager = document.getElementById('antDager').value;
+      let valgtBil = document.getElementById('bilValg').value;
+
+      if (alder == 0 || dager == 0) {
+        alert('Fyll ut alle feltene');IIDRI1002
+        location.reload();
+      }
+      if (valgtBil == 'Porsche') {
+        resultat.innerText = `Biltype: ${valgtBil}\n Antall dager: ${dager}\n Totalpris: ${
+          biler[valgtBil] * dager
+        }kr`;
+      } 
+      else {
+        if (alder >= 25) {
+          resultat.innerText = `Biltype: ${valgtBil}\n Antall dager: ${dager}\n Rabatt: ${
+            biler[valgtBil] * dager * 0.1
+          }kr (10%)\n Totalpris: ${biler[valgtBil] * dager * 0.9}kr`;
+        } 
+        else {
+          resultat.innerText = `Biltype: ${valgtBil}\n Antall dager: ${dager}\n Totalpris: ${
+            biler[valgtBil] * dager
+          }kr`;
+        }
+      }
+    };
+  </script>
+</html>

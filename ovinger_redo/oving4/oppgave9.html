@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 4</title>
+  </head>
+  <body>
+    <h2>Oppgave 9 (Frivillig)</h2>
+    <button id="partall">Skriv ut partall</button>
+    <button id="oddetall">Skriv ut oddetall</button>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funkjsoen kjøres når bruker trykker på partall
+    partall.onclick = () => {
+      // Definerer en tom variabel for verdiene
+      let tall = '';
+      // For-løkke som avgrenser verdiene
+      for (let i = 1; i <= 10; i++) {
+        // If-setning på en linje som sjekker om (i/2) sin
+        // rest er null. I så fall er det et partall
+        if (i % 2 == 0) tall += `${i} `;
+      }
+      // Skriver ut alle verdiene med null i rest
+      resultat.innerText = tall;
+    };
+
+    // Funkjsoen kjøres når bruker trykker på oddetall
+    oddetall.onclick = () => {
+      // Definerer en tom variabel for verdiene
+      let tall = '';
+      // For-løkke som avgrenser verdiene
+      for (let i = 1; i <= 10; i++) {
+        // If-setning på en linje som sjekker om (i/2) sin
+        // rest ikke er null. i så fall er det et oddetall
+        if (i % 2 !== 0) tall += `${i} `;
+      }
+      // Skriver ut alle verdiene som ikke har null i rest
+      resultat.innerText = tall;
+    };
+  </script>
+</html>

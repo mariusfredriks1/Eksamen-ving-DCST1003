@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 2</title>
+  </head>
+  <body>
+    <h2>Oppgave 1</h2>
+    <form id="form">
+      Navn:<input type="text" id="navn" /> Favorittfarge:<input
+        type="text"
+        id="farge"
+      />
+      <button id="submit">Submit</button>
+    </form>
+  </body>
+  <script>
+    // Funksjonen under ser kanskje ikke ut som en funksjon
+    // men det er bare en nyere måte å skrive funksjoner på
+    // i JavaScript. Søk opp "arrow functions ES6" for info
+
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    form.onsubmit = () => {
+      // Skriver ut denne meldingen i en meldingsboks.
+      alert(`Hei ${navn.value}, liker du ${farge.value}-farge du?`);
+    };
+  </script>
+</html>

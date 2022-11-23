@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Øving 3</title>
+  </head>
+  <body>
+    <h2>Oppgave 3</h2>
+    <div>
+      Skriv inn: <br />
+      "H" for HJEMME <br />
+      "B" for BORTE <br />
+      "U" for UAVGJORT
+    </div>
+    <input type="text" id="userInp" />
+    <button id="submit">Submit</button>
+    <br />
+    <div id="resultat"></div>
+  </body>
+  <script>
+    // Funksjon som kjøres i det brukeren trykker på knappen
+    submit.onclick = () => {
+      // Definerer en variabel for bruker input, og henter verdien(.value)
+      let tippet = document.getElementById('userInp').value;
+      // Sjekker om input var lik "H", i så fall skrives "HJEMME ut"
+      if (tippet === 'H') resultat.innerText = `HJEMME`;
+      // Sjekker om input var lik "B", i så fall skrives "BORTE ut"
+      else if (tippet === 'B') resultat.innerText = `BORTE`;
+      // Sjekker om input var lik "U", i så fall skrives "UAVGJORT ut"
+      else if (tippet === 'U') resultat.innerText = `UAVGJORT`;
+      // Hvis ingen av alternativene over stemmer, skrives dette ut
+      else resultat.innerText = `Du skrev noe feil!`;
+    };
+  </script>
+</html>
