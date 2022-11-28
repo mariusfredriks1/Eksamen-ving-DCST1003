@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let button = document.createElement('button');
+    button.innerText = 'halla';
+    button.style.position = 'absolute';
+    button.style.top = '100px';
+    button.style.left = '100px';
+    document.body.appendChild(button);
+
+    button.onmouseover = () => {
+      setTimeout(() => {
+        if (button.style.left == '100px') button.style.left = '300px';
+        else button.style.left = '100px';
+      }, 150);
+    };
+  </script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 7</title>
+  </head>
+  <body>
+    Multiplikasjon: <input type="radio" name="radioknapp" id="multiplikasjon" />
+    <br />
+    Divisjon:<input type="radio" name="radioknapp" id="divisjon" />
+    <br />
+    Pluss:<input type="radio" name="radioknapp" id="pluss" />
+    <br />
+    <button id="btn">Vis</button>
+    <br />
+    <h2 id="overskrift"></h2>
+    <div id="resultat"></div>
+  </body>
+  <script>
+    btn.onclick = () => {
+      if (multiplikasjon.checked) {
+        let tekst = ' ';
+        let fyllTabell = () => {
+          let tabell = [];
+          for (let i = 10; i <= 20; i++) {
+            tabell[i] = [];
+          }
+          for (let x = 10; x <= 20; x++) {
+            tabell[10][x] = '<b>' + x + '<b>';
+            for (let y = 10; y <= 20; y++) {
+              tabell[y][10] = '<b>' + y + '<b>';
+            }
+          }
+          for (let i = 11; i <= 20; i++) {
+            for (let j = 11; j <= 20; j++) {
+              tabell[i][j] = i * j;
+            }
+          }
+          return tabell;
+        };
+        let skrivUt = () => {
+          let tabell = fyllTabell();
+          let tekst = "<table border='1px'>";
+          for (let i = 10; i <= 20; i++) {
+            tekst += "<tr style='height:40px'>";
+            for (let j = 10; j <= 20; j++) {
+              tekst +=
+                "<td style='width:40px'><center>" + tabell[i][j] + '</td>';
+            }
+            tekst += '</tr>';
+          }
+          tekst += '</table>';
+          overskrift.innerText = 'Multiplikasjons-tabell';
+          resultat.innerHTML = tekst;
+        };
+        fyllTabell();
+        skrivUt();
+      } else if (divisjon.checked) {
+        let tekst = ' ';
+        let fyllTabell = () => {
+          let tabell = [];
+          for (let i = 0; i <= 10; i++) {
+            tabell[i] = [];
+          }
+          for (let x = 0; x <= 10; x++) {
+            tabell[0][x] = '<b>' + x + '<b>';
+            for (let y = 0; y <= 10; y++) {
+              tabell[y][0] = '<b>' + y + '<b>';
+            }
+          }
+          for (let i = 1; i <= 10; i++) {
+            for (let j = 1; j <= 10; j++) {
+              tabell[i][j] = (i / j).toFixed(2);
+            }
+          }
+          return tabell;
+        };
+        let skrivUt = () => {
+          let tabell = fyllTabell();
+          let tekst = "<table border='1px'>";
+          for (let i = 0; i <= 10; i++) {
+            tekst += "<tr style='height:40px'>";
+            for (let j = 0; j <= 10; j++) {
+              tekst +=
+                "<td style='width:40px'><center>" + tabell[i][j] + '</td>';
+            }
+            tekst += '</tr>';
+          }
+          tekst += '</table>';
+          overskrift.innerText = 'Divisjons-tabell';
+          resultat.innerHTML = tekst;
+        };
+        fyllTabell();
+        skrivUt();
+      } else {
+        let tekst = "<table border = '1px'>";
+        for (let x = 0; x <= 10; x++) {
+          tekst += "<tr style = 'height:40px'>";
+          for (let y = 0; y <= 10; y++) {
+            tekst += "<td style = 'width:40px'><center>" + (x + y) + '</td>';
+          }
+          tekst += '</tr>';
+        }
+        tekst += '</table>';
+        overskrift.innerText = 'Pluss-tabell';
+        resultat.innerHTML = tekst;
+      }
+    };
+  </script>
+</html>

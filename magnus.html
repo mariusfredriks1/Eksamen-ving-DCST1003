@@ -26,9 +26,9 @@
           deleteButton.innerText = 'slett';
           list.appendChild(deleteButton);
           deleteButton.id = [i];
-
+          
           deleteButton.onclick = () => {
-            let indeks = deleteButton.id;
+          let indeks = deleteButton.id;
             students.splice(indeks, 1);
             visListe();
           };

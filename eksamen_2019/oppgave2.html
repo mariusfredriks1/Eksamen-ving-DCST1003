@@ -8,28 +8,27 @@
   </body>
   <script>
     //Oppgave A
-    let navn = ['fanta', 'cola', 'pepsi', 'solo'];
-    let antall = [3, 5, 7, 11];
-    let pris = [20, 19.5, 22, 25];
+    let navn = ['Kaviar', 'cola', 'Melk'];
+    let antall = [2, 8, 3];
+    let pris = [19.5, 12.9, 11];
 
-    let funk1 = (antall, pris) => {
-      let totalpris = 0;
-      if (isNaN(antall) || isNaN(pris)) {
-        alert('Antall eller pris er ikke ett tall');
-        return;
-      } else if (antall <= 0 || pris <= 0) {
-        alert('Antall og pris må være høyere enn 0');
-        return;
-      } else {
-        totalpris = antall * pris;
-      }
+    /* let funk1 = (antall, pris) => {
+      totalpris = antall * pris;
       return totalpris;
     };
+    console.log(funk1(3, 11)); */
 
-    //Oppgave B HÆÆÆÆÆ
-    let funk2 = (antall) => {
-      console.log(antall * x);
+    //Oppgave B
+
+    /* let funk2 = (antall) => {
+      let pris;
+      for (let i = 0; i <= antall; i++) {
+        pris += antall[i] * pris[i];
+        return pris;
+      }
     };
+    console.log(funk2(2)); */
+
     //Oppgave C
     skrivUt.onclick = () => {
       let tekst = '';

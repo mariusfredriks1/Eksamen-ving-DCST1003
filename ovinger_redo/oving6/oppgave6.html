@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 6</title>
+  </head>
+  <body>
+    <div id="halla"></div>
+  </body>
+  <script>
+    let tekst = "<table border = '1px'>";
+    for (let x = 0; x <= 10; x++) {
+      tekst += "<tr style = 'height:40px'>";
+      for (let y = 0; y <= 10; y++) {
+        tekst += "<td style = 'width:40px'><center>" + (x + y) + '</td>';
+      }
+      tekst += '</tr>';
+    }
+    tekst += '</table>';
+    halla.innerHTML = tekst;
+  </script>
+</html>
