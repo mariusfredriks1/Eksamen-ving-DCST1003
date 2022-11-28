@@ -43,8 +43,6 @@
     <div id="resultat"></div>
   </body>
   <script>
-      let henteTid;
-      let levereTid;
 
     submit.onclick = () => {
       let henteSted = document.getElementById('utleveringSted');
@@ -53,8 +51,8 @@
       let type1 = document.getElementById('type1');
       let type2 = document.getElementById('type2');
 
-      levereTid = new Date(document.getElementById('levereTid').value);
-      henteTid = new Date(document.getElementById('henteTid').value);
+      let levereTid = new Date(document.getElementById('levereTid').value);
+      let henteTid = new Date(document.getElementById('henteTid').value);
 
       let typer = {
         Ingen: null,
@@ -62,7 +60,6 @@
         Kajakk: 495, 
         Supboard: 295,
       };
-      console.log(typer[type1.value]);
 
       if (typer[type1.value] != null || typer[type2.value] != null) {
         let sum = 0;

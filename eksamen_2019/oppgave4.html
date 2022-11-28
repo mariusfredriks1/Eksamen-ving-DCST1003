@@ -10,13 +10,13 @@
   <script>
     let v = [2, 4, 6];
 
-    // A
+    // Dele e av v på 2
     console.log(v.map((e) => e / 2));
 
-    // B
+    // Logge e sin verdi + index 
     console.log(v.map((e, i) => e + i));
 
-    // C
+    // Sum of v, after multiplying each element of v by 2: 24
     console.log(v.map((e) => e * 2).reduce((sum, e) => sum + e, 0));
 
     let students = [
@@ -25,16 +25,16 @@
       { name: 'Knut', age: 30 },
     ];
 
-    // D
+    // Gjennomsnittlig alder
     console.log(students.reduce((sum, e) => sum + e.age, 0) / students.length);
 
-    // E
+    // Finne navn som starter på "K"
     console.log(students.filter((e) => e.name[0] == 'K'));
 
-    // F
+    // Er ola en student? ja/nei
     console.log(students.some((e) => e.name == 'Ola') ? 'yes' : 'no');
 
-    // G
+    // Er alle 22 år eller eldre? ja/nei
     console.log(students.every((e) => e.age >= 22) ? 'yes' : 'no');
   </script>
 </html>

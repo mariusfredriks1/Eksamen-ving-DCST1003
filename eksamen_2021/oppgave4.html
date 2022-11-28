@@ -9,35 +9,31 @@
   <body></body>
   <script>
     let v = [2, 4, 6];
-    //
+    // Each element of v subtracted by 4: [-2, 0, 2]
     console.log(v.map((e) => e - 4));
-
+    // Each element of v added by its index: [2, 5, 8]
     console.log(v.map((e, i) => e + i));
-
+    // Elements of v that are 4 or larger: [4, 6]
     console.log(v.filter((e) => e >= 4));
-
-    console.log(v.reduce((str, e) => str + e + '-', '-'));
-
-    console.log('/////////////');
+    // Elements of v as a string and surrounded by '-': -2-4-6-
+    console.log(v.reduce((sum, e) => sum + e + '-', '-'));
 
     let students = [
       { id: 1, name: 'Kari' },
       { id: 2, name: 'Ola' },
       { id: 3, name: 'Knut' },
     ];
-
+    // Ids of students that have name starting with 'K': [1, 3]
+    console.log(students.filter((e) => e.name[0] == 'K')
+    .map((e) => e.id));
+    
+    // Sum of ids of students that have name starting with 'K': 4
     console.log(
-      students
-        .filter((student) => student.name[0] == 'K')
-        .map((student) => student.id)
+      students.filter((e) => e.name[0] == 'K')
+      .reduce((sum, e) => sum + e.id, 0)
     );
 
-    console.log(
-      students
-        .filter((student) => student.name[0] == 'K')
-        .reduce((sum, id) => sum + id, 0)
-    );
-
-    console.log(students.some((student) => students.id == 5) ? 'yes' : 'no');
+    // Is there a student with id 5: no
+    console.log(students.some((e) => e.id == 5) ? 'yes' : 'no');
   </script>
 </html>

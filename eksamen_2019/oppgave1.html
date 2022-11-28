@@ -29,7 +29,8 @@
       let alder = document.getElementById('alder').value;
       let dager = document.getElementById('dager').value;
 
-      if (alder == 0 || dager == 0) alert('Fyll ut alle felter');
+      if (isNaN(alder) || isNaN(dager) || alder <= 0 || dager <= 0)
+        alert('Fyll ut alle felter');
       else {
         if (valgtbil == 'porsche' || alder < 25) {
           resultat.innerText = `Valgt bil: ${valgtbil}\n Antall dager: ${dager}\n	Totalpris: ${

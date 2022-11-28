@@ -224,13 +224,17 @@
     );
     // Finn alle sangene til Ed Sheeran og Eminem
     console.log(
-      'Sangene til Ed Sheeran og Eminem',
+      'Sangene til Ed Sheeran og Eminem sortert alfabetisk',
       musikk
         .filter((e) => e.artist == 'Ed Sheeran' || e.artist == 'Eminem')
         .map((e) => `${e.tittel} : ${e.artist}`)
+        .sort()
     );
 
     // Log alle unike artistnavn|| IKKE PENSUM!!!
     console.log('Unike artister', [...new Set(musikk.map((e) => e.artist))]);
+
+    // unike artistnavn sortert alfabetisk
+    console.log([...new Set(musikk.map((e) => e.artist))].sort());
   </script>
 </html>

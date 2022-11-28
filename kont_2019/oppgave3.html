@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave 3</title>
+  </head>
+  <body></body>
+  <script>
+    let margin_left = 10;
+    let margin_top = 10;
+
+    let button = document.createElement('button');
+    button.innerText = 'Trykk her';
+    button.style.position = 'absolute';
+    button.style.top = margin_top + 'px';
+    button.style.left = margin_left + 'px';
+    document.body.appendChild(button);
+
+    let aktiv = false;
+
+    button.onclick = () => (aktiv = !aktiv);
+
+    setInterval(() => {
+      if (aktiv) {
+        margin_left += 1;
+        margin_top += 1;
+        button.style.top = margin_top + 'px';
+        button.style.left = margin_left + 'px';
+      }
+    }, 20);
+  </script>
+</html>

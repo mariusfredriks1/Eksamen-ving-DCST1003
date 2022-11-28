@@ -37,22 +37,20 @@
       let dager = document.getElementById('antDager').value;
       let valgtBil = document.getElementById('bilValg').value;
 
-      if (alder == 0 || dager == 0) {
-        alert('Fyll ut alle feltene');IIDRI1002
-        location.reload();
+      if (isNaN(alder) || isNaN(dager) || alder <= 0 || dager <= 0) {
+        alert('Noe er feil');
+        return;
       }
       if (valgtBil == 'Porsche') {
         resultat.innerText = `Biltype: ${valgtBil}\n Antall dager: ${dager}\n Totalpris: ${
           biler[valgtBil] * dager
         }kr`;
-      } 
-      else {
+      } else {
         if (alder >= 25) {
           resultat.innerText = `Biltype: ${valgtBil}\n Antall dager: ${dager}\n Rabatt: ${
             biler[valgtBil] * dager * 0.1
           }kr (10%)\n Totalpris: ${biler[valgtBil] * dager * 0.9}kr`;
-        } 
-        else {
+        } else {
           resultat.innerText = `Biltype: ${valgtBil}\n Antall dager: ${dager}\n Totalpris: ${
             biler[valgtBil] * dager
           }kr`;

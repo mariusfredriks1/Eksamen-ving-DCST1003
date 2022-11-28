@@ -46,23 +46,19 @@
     };
 
     submit.onclick = () => {
-      // let valgtHotel = document.getElementById('hotel').value;
-      // let valgtRom = document.getElementById('romType').value;
+      let valgtHotel = document.getElementById('hotel').value;
+      let valgtRom = document.getElementById('romType').value;
+      let kommentar = document.getElementById('kommentar').value;
       let ankomst = new Date(document.getElementById('ankomst').value);
       let avreise = new Date(document.getElementById('avreise').value);
       let antDager = parseInt((avreise - ankomst) / (24 * 3600 * 1000));
-      // let kommentar = document.getElementById('kommentar').value;
 
-      if (
-        avreise <= ankomst ||
-        ankomst == 'Invalid Date' ||
-        avreise == 'Invalid Date'
-      )
+      if (avreise <= ankomst || isNaN(ankomst) || isNaN(avreise))
         alert('Minimum en natt!');
       else {
-        resultat.innerText = `Overnatting på Basic Quality Hotel i ${hotel.value}\n Romtype: ${romType.value}\n Ankomstdato: ${ankomst.toLocaleDateString()}\n Avreisedato: ${avreise.toLocaleDateString()}\n Kommentar: ${kommentar.value}\n Pris: ${
-          rom[romType.value]
-        } kr * ${antDager} dager = ${rom[romType.value] * antDager}kr `;
+        resultat.innerText = `Overnatting på Basic Quality Hotel i ${valgtHotel}\n Romtype: ${valgtRom}\n Ankomstdato: ${ankomst.toLocaleDateString()}\n Avreisedato: ${avreise.toLocaleDateString()}\n Kommentar: ${kommentar}\n Pris: ${
+          rom[valgtRom]
+        } kr * ${antDager} dag(er) = ${rom[valgtRom] * antDager}kr `;
       }
     };
   </script>

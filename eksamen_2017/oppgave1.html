@@ -16,7 +16,7 @@
   <script>
     //Skitten drittoppgave
     submit.onclick = () => {
-      let tall = +document.getElementById('userInp').value;
+      let tall = Number(document.getElementById('userInp').value);
       let svar = '';
       let sum = 0;
       if (tall > 10 || tall < 0) alert('Error');
@@ -27,8 +27,8 @@
             sum += tall;
             tall--;
           }
-        } else if(tall >= 6){
-          while(tall <= 10){
+        } else if (tall >= 6) {
+          while (tall <= 10) {
             svar += `${tall}\n`;
             sum += tall;
             tall++;

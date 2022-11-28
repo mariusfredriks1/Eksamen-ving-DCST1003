@@ -1,0 +1,61 @@
+<html lang="en">
+  <head> </head>
+  <body>
+    <div id="outdata"></div>
+
+    <script>
+      let students = [
+        { name: 'Arne', grade: 'A' },
+        { name: 'Per', grade: 'B' },
+        { name: 'Marit', grade: 'F' },
+        { name: 'Magnus', grade: 'A' },
+        { name: 'Marius', grade: 'F' },
+      ];
+
+      let studentList = document.getElementById('outdata');
+
+      let visListe = () => {
+        studentList.innerText = '';
+        for (let i = 0; i < students.length; i++) {
+          let list = document.createElement('li');
+          list.innerText =
+            'Name: ' + students[i].name + ', Grade: ' + students[i].grade;
+          studentList.appendChild(list);
+
+          let deleteButton = document.createElement('button');
+          deleteButton.innerText = 'slett';
+          list.appendChild(deleteButton);
+          deleteButton.id = [i];
+
+          deleteButton.onclick = () => {
+            let indeks = deleteButton.id;
+            students.splice(indeks, 1);
+            visListe();
+          };
+        }
+      };
+
+      let inpName = document.createElement('input');
+      inpName.placeholder = 'Name';
+      document.body.appendChild(inpName);
+
+      let inpGrade = document.createElement('input');
+      inpGrade.placeholder = 'Grade';
+      document.body.appendChild(inpGrade);
+
+      let leggTil = document.createElement('button');
+      leggTil.innerText = 'Legg til';
+      document.body.appendChild(leggTil);
+
+      leggTil.onclick = () => {
+        students.push({
+          name: inpName.value,
+          grade: inpGrade.value.toUpperCase(),
+        });
+        visListe();
+      };
+
+      visListe();
+    </script>
+  </body>
+</html>
