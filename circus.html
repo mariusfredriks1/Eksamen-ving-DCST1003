@@ -1,0 +1,94 @@
+<html>
+  <body>
+    <select id="drinkvalg">
+      <option>Hiroshima</option>
+      <option>Jägermaister</option>
+      <option>Fireball</option>
+      <option>Absinth</option>
+      <option>HotShot</option>
+    </select>
+    <input type="number" id="antall" placeholder="Antall" />
+    <button id="leggTil">Legg til</button>
+    <br />
+    <input type="text" id="rabattKode" placeholder="RabattKode" />
+    <button id="sjekk_kode">Sjekk Gyldighet</button>
+    <br />
+    <input type="number" id="bordnr" placeholder="Bordnummer" />
+    <br />
+    <button id="bestill">Send Bestilling</button>
+    <br />
+    <div id="resultat"></div>
+  </body>
+  <script>
+    /* I denne oppgaven skal du programmere noe av funksjonaliteten til en bestillings-applikasjon for
+     Bar Circus. Programmet består av et grafisk brukergrensesnitt som
+     lar deg velge bordnummer, antall og type drinker som ønskes ønskes kjøpt.
+     I tillegg skal det være mulighet for å skrive inn en rabattkode (TIHLDE) til en verdi av 20%.
+     Basert på disse opplysningene blir så pris beregnet og bestillingen presentert
+     Pris for drinkene er som følger
+
+     - Hiroshima: 120 kr
+     - Jägermaister: 90 kr
+     - Fireball: 90 kr
+     - Absinth: 100 kr
+     - Hot Shot: 70 k
+
+     Eksempel på utregning:
+     2 Hiroshima vil koste: 120 kr * 2 = 240 kr
+     3 Fireball med gyldig rabattkode vil koste: (90 kr * 3) * 0.8 = 216 k
+     
+     Lag både HTML-koden og JS-koden som må ligge bak knappen for bestilling. Knappen
+     beregner som sagt pris for bestillingen og presenterer den registrerte informasjonen. Dersom
+     brukeren gir inn ugyldig informasjon i skjemaet skal systemet gi tilbakemelding om dette. */
+
+    let drikke = {
+      Hiroshima: 120,
+      Jägermaister: 90,
+      Fireball: 90,
+      Absinth: 100,
+      HotShot: 70,
+    };
+
+    let bestilling = '';
+    let sum = 0;
+
+    leggTil.onclick = () => {
+      let valgt_drink = document.getElementById('drinkvalg').value;
+      let antall = +document.getElementById('antall').value;
+      resultat.innerText = '';
+      if (antall <= 0) alert('Minimum en drink');
+      else {
+        sum += drikke[valgt_drink] * antall;
+        bestilling += `${antall} ${valgt_drink} koster ${
+          drikke[valgt_drink] * antall
+        }kr\n`;
+        resultat.innerText = `${bestilling}`;
+      }
+    };
+
+    let rabatt = false;
+    sjekk_kode.onclick = () => {
+      let rabattKode = document.getElementById('rabattKode').value;
+      if (rabattKode == 'TIHLDE') {
+        alert('Gyldig ; )');
+        rabatt = true;
+      } else alert('Bytt linjeforening a..');
+    };
+
+    bestill.onclick = () => {
+      let bord = +document.getElementById('bordnr').value;
+      if (bord <= 0) {
+        alert('Fyll in bordnummer');
+        return;
+      }
+      resultat.innerText = '';
+      if (rabatt) {
+        resultat.innerText = `${bestilling}---------------------------\n Rabatt: ${
+          sum * 0.2
+        }kr\n Totalpris: ${sum * 0.8}kr\n Bestilt til bord nummer ${bord}`;
+      } else {
+        resultat.innerText = `${bestilling}---------------------------\n Totalpris: ${sum}kr\n Bestilt til bord nummer ${bord}`;
+      }
+    };
+  </script>
+</html>

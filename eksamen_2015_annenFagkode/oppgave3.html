@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Oppgave 3</title>
+  </head>
+  <body>
+    <input type="text" id="inpNavn" placeholder="Navn" />
+    <input type="text" id="inpKarakter" placeholder="Karakter" />
+    <button id="leggTil">Legg til</button>
+  </body>
+  <script>
+    let studentArr = [
+      { student: 'Ola', karakter: 'B' },
+      { student: 'Kari', karakter: 'C' },
+      { student: 'Lisa', karakter: 'A' },
+      { student: 'Pål', karakter: 'D' },
+    ];
+
+    let bokstavArr = ['F', 'E', 'D', 'C', 'B', 'A'];
+    let tallVerdi = [];
+
+    leggTil.onclick = () => {
+      if (inpNavn.value !== '' && inpKarakter.value !== '')
+        studentArr.push({
+          student: inpNavn.value,
+          karakter: inpKarakter.value,
+        });
+
+      console.log(studentArr);
+      for (let e of studentArr) tallVerdi.push(bokstavArr.indexOf(e.karakter));
+
+      console.log(
+        bokstavArr[
+          Math.round(
+            tallVerdi.reduce((sum, e) => sum + e, 0) / tallVerdi.length
+          )
+        ]
+      );
+    };
+  </script>
+</html>

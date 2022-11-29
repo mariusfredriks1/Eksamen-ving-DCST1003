@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Title of your page here</title>
+  </head>
+  <body>
+    <h2>Oppgave A</h2>
+    Brasil:<input type="radio" name="radioknapp" id="brasil" />
+
+    Norge: <input type="radio" name="radioknapp" id="norge" />
+    <button id="submit">Registrer mål</button>
+    <div id="malResultat"></div>
+
+    <hr />
+    <h2>Oppgave B</h2>
+    Varenavn: <input type="text" id="vare" />
+    <br />
+    Antall: <input type="text" id="antall" />
+    <br />
+    <button id="leggTil">Legg til i handleliste</button>
+    <div id="handleResultat"></div>
+  </body>
+  <script>
+    let malNorge = 0;
+    let malBrasil = 0;
+
+    submit.onclick = () => {
+      if (norge.checked) malNorge++;
+      else if (brasil.checked) malBrasil++;
+      else alert('Du må krysse av en boks');
+      malResultat.innerHTML = `<b>Brasil:</b> ${malBrasil}\t<b>Norge:</b> ${malNorge}`;
+      norge.checked = false;
+      brasil.checked = false;
+    };
+
+    let handleliste = '';
+    leggTil.onclick = () => {
+      let vare = document.getElementById('vare').value;
+      let antall = +document.getElementById('antall').value;
+      console.log(typeof vare);
+      if (vare == '') {
+        alert('ERROR 1');
+        return;
+      } else if (isNaN(antall) || antall <= 0) {
+        alert('ERROR 2');
+        return;
+      } else {
+        handleliste += `<li>${vare}:${antall}</li>`;
+      }
+      handleResultat.innerHTML = handleliste;
+    };
+  </script>
+</html>

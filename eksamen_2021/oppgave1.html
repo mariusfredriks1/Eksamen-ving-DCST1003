@@ -8,15 +8,17 @@
   </head>
   <body></body>
   <script>
-    isPalidrom = (str) => {
-      if (str.length == 0) return true;
+    // Oppgave A
 
-      let reversed_str = '';
+    let isPalidrom = (string) => {
+      if (string.length == 0) return true;
 
-      for (let i = str.length - 1; i >= 0; i--) {
-        reversed_str += str[i];
+      let reversed_string = '';
+
+      for (let i = string.length - 1; i >= 0; i--) {
+        reversed_string += string[i];
       }
-      return reversed_str == str;
+      return reversed_string == string;
     };
     console.log(
       'er agnes i senga et palidrom?',
@@ -24,6 +26,7 @@
     );
     console.log('er halla et palidrom?', isPalidrom('halla') ? 'ja' : 'nei');
 
+    // Oppgave B
     let isLeapYear = (year) => {
       if (year % 100 == 0) {
         if (year % 400 == 0) return true;
